@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beatriz - Portefolio</title>
+
+    <style>
+      /* UTILITIES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+        list-style: none;
+        }
+
+      /* NAVBAR STYLING STARTS */
+        .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: rgb(53, 55, 56);
+        color: #fff;
+        }
+        .nav-links a {
+        color: #fff;
+        }
+        /* LOGO */
+        .logo {
+        font-size: 32px;
+        }
+        /* NAVBAR MENU */
+        .menu {
+        display: flex;
+        gap: 1em;
+        font-size: 18px;
+        }
+        .menu li:hover {
+        background-color: #2f2f2f;
+        border-radius: 5px;
+        transition: 0.3s ease;
+        }
+        .menu li {
+        padding: 5px 14px;
+        }
+        /* DROPDOWN MENU */
+        .services {
+        position: relative; 
+        }
+        .dropdown {
+        background-color: rgb(53, 55, 56);
+        padding: 1em 0;
+        position: absolute; /*WITH RESPECT TO PARENT*/
+        display: none;
+        border-radius: 8px;
+        top: 35px;
+        }
+        .dropdown li + li {
+        margin-top: 10px;
+        }
+        .dropdown li {
+        padding: 0.5em 1em;
+        width: 8em;
+        text-align: center;
+        }
+        .dropdown li:hover {
+        background-color: #2f2f2f;
+        }
+        .services:hover .dropdown {
+        display: block;
+        }
+
+        /*RESPONSIVE NAVBAR MENU STARTS*/
+        /* CHECKBOX HACK */
+        input[type=checkbox]{
+        display: none;
+        } 
+        /*HAMBURGER MENU*/
+        .hamburger {
+        display: none;
+        font-size: 24px;
+        user-select: none;
+        }
+        /* APPLYING MEDIA QUERIES */
+        @media (max-width: 768px) {
+        .menu { 
+        display:none;
+        position: absolute;
+        background-color:rgb(53, 55, 56);
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+        }
+        .menu li:hover {
+        display: inline-block;
+        background-color:#2f2f2f;
+        transition: 0.3s ease;
+        }
+        .menu li + li {
+        margin-top: 12px;
+        }
+        input[type=checkbox]:checked ~ .menu{
+        display: block;
+        }
+        .hamburger {
+        display: block;
+        }
+        .dropdown {
+        left: 50%;
+        top: 30px;
+        transform: translateX(35%);
+        }
+        .dropdown li:hover {
+        background-color: #2f2f2f;
+        }
+      }
+
+      /*Columns*/
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Create three equal columns that floats next to each other */
+      .column {
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
+      }
+      .columnl{
+        float:left;
+        width: 33.33%;
+        padding-left: 80px;
+        height: 300px;
+      }
+      .columnm{
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+        height: 300px;
+        background-image:url("Capturar.JPG");
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+        }
+        .columnl {
+          width: 100%;
+        }
+        .columnm {
+          width: 100%;
+        }
+      }
+
+      /*Align Image Center*/
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+
+      /*Hover Button*/
+      .button {
+        border-radius: 10px;
+        background-color: rgb(53, 55, 56);
+        border: 4px solid #674ba2;
+        color: #674ba2;
+        text-align: center;
+        font-size: 24px;
+        padding: 20px;
+        width: 200px;
+        height: 350;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
+
+      .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .button:hover span {
+        padding-right: 25px;
+      }
+
+      .button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+
+      /*Skills Column*/
+      .columns{
+        float: left;
+        width: 100%;
+        padding: 10px;
+        height: 650px;
+        text-align: center;
+        padding-top: 100px;
+      }
+      .columnf{
+        float: left;
+        width: 100%;
+        padding: 10px;
+        height: 450px;
+        text-align: center;
+        padding-top: 100px;
+      }
+      .square-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 700px;
+      }
+
+      .square {
+        position:relative;
+        flex-basis: calc(20% - 10px);
+        margin: 20px;
+        box-sizing: border-box;
+        background-color: rgb(53, 55, 56);
+        height: 250px;
+      }
+
+      .square::before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+
+      .square .content {
+        position: absolute;
+        top: 0; left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      /*Top Button*/
+      #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: rgb(81, 56, 105);
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+      }
+
+      #myBtn:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(53, 55, 56);">
+    <form>
+      <nav class="navbar"> <!--Barra de navegação-->
+        <!-- LOGO -->
+        <div href="index.html" class="logo">BF.</div> <!--Make it follow the path to index-->
+        <!-- NAVIGATION MENU -->
+        <ul class="nav-links">
+          <!-- USING CHECKBOX HACK -->
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <!-- NAVIGATION MENUS -->
+          <div class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Sobre.html">Sobre</a></li>
+            <li class="services">
+              <a href="">Projetos</a>
+              <!-- DROPDOWN MENU -->
+              <ul class="dropdown">
+                <li><a href="HTMLeCSS.html">HTML e CSS</a></li>
+                <li><a href="WixeWordpress.html">Wix e Wordpress</a></li>
+              </ul>
+            </li>
+            <li><a href="Qualificacoes.html">Qualificações</a></li>
+            <a href="https://www.instagram.com/beatrizv_._/"><img src="assets/Imagens/instagram_logo_icon_172387.png" title="Instagram" alt="Instagram" style="height: 30px; width: 30px;"></a>
+            <a href="https://www.linkedin.com/in/beatriz-felismino-654204252"><img src="https://www.edigitalagency.com.au/wp-content/uploads/new-linkedin-logo-white-black-png.png" title="Linkedin" alt="Linkedin" style="height: 30px; width: 30px;"></a>
+          </div>
+        </ul>
+      </nav>
+
+      <br><br><br><br>
+
+      <div class="row"> <!--Colunas Introdutorias-->
+        <div class="columnl" style="background-color:rgb(53, 55, 56);">
+          <h1 style="color:#fff;">Beatriz</h1>
+          <h1 style="color:#fff;">Felismino</h1>
+          <br><br>
+          <hr width="50" color="#674ba2"/hr>
+          <br><br>
+          <p style="color:#fff;">Instagram | Linkedin</p>
+          <br><br>
+          <button class="button" href="Contacto.html"><span>Contactar</span></button>
+        </div>
+        <div class="columnm" style="background-color:rgb(53, 55, 56);">
+          <img src="assets/Imagens/IMG_20220910_172654_thumbnail.png" class="center" title="Beatriz" alt="Beatriz" style="height: 400px; width: 330px;" > <!--Provisório-->
+        </div>
+        <div class="column" style="background-color:rgb(53, 55, 56);">
+          <h4 style="color:#674ba2">Introdução</h4>
+          <h2 style="color:#fff;">Programadora de Informática,</h2>
+          <h2 style="color:#fff;">experiência em web</h2>
+          <h2 style="color:#fff;">e desenvolvimento</h2>
+          <h2 style="color:#fff;">full stack.</h2>
+          <br>
+          <a href="Sobre.html" style="color:#674ba2">Saiba mais</a>
+        </div>
+      </div>
+
+      <br><br><br><br><br><br><br>
+
+      <div class="row" style="background-color: #222222;"> <!--Coluna de Abilidades-->
+        <div class="columns">
+          <h4 style="color:#674ba2">Skills</h4>
+          <h2 style="color:#fff;">O Que Sei Fazer</h2>
+
+          <br><br><br>
+
+          <div class="square-container">
+
+            <div class="square">
+              <div class="content">
+                <img src="assets/Imagens/html-css.png" height=150px" width="120px" style="padding-top:30px ;">
+                <br><br>
+                <a style="color:#fff;" href="HTMLeCSS.html">HTML e CSS</a>
+              </div>
+            </div>
+          
+            <div class="square">
+              <div class="content">
+                <img src="assets/Imagens/Sem título-1.png" height=150px" width="120px" style="padding-top:30px ;">
+                <br><br>
+                <a style="color:#fff;" href="WixeWordpress.html">Wix e Wordpress</a>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="background-color: rgb(53, 55, 56);"> <!--Coluna de Abilidades-->
+        <div class="columnf">
+          <footer>
+            <h4 style="color:#674ba2">Contactos</h4>
+            <h2 style="color:#fff;">Formas de me Contactar</h2>
+            
+            <br><br><br><br>
+
+            <p style="color:#674ba2">email: beatrizfelismino9@gmail.com</p>
+            <br>
+            <a style="color:#674ba2" href="assets/CV - Beatriz.pdf">Abrir o Currículo</a>
+            <br><br>
+            <p style="color:#674ba2">Nº de Telemóvel: 963 994 729</p>
+
+            <br><br><br><br>
+
+            <hr width="100%" color="#674ba2"/hr>
+
+            <br>
+
+            <p style="color:#fff">Copyright - Beatriz Felismino | All rights reserved</p>
+
+          </footer>
+        </div>
+      </div>
+
+      <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+      <script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+
+    </form>
+  </body>
+</html>
